@@ -39,11 +39,14 @@ while True:
 # solicita a nota obtida na redação, repetindo a solicitação caso a nota seja inválida
 while True:
     RED = str(input("Nota na Prova De Redação: ")).replace(",", ".")
-    if RED == "" or RED.isalpha():
+    if RED.isdigit() or RED != ",":
+        pass
+    else:
         print(f"\033[31mHOUVE UM ERRO, INFORME NOVAMENTE A NOTA.\033[m")
         continue
     print("")
     break
+
 
 # chama a função enem do módulo ENEM, passando as notas como parâmetros
 f = enem(float(linguagens), float(CH), float(CN), float(MAT), float(RED))
